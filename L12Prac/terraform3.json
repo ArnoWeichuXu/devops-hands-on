@@ -1,0 +1,441 @@
+{
+  "version": 4,
+  "terraform_version": "1.2.8",
+  "serial": 6,
+  "lineage": "18174ec2-4c81-28f9-b11e-0499f6d400f0",
+  "outputs": {
+    "base_url": {
+      "value": "https://0zbgqekimd.execute-api.ap-southeast-2.amazonaws.com/test",
+      "type": "string"
+    },
+    "dynamodb_table_name": {
+      "value": "terraform-state-lock-dynamodb",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_deployment",
+      "name": "example",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "created_date": "2022-08-31T11:03:38Z",
+            "description": "",
+            "execution_arn": "arn:aws:execute-api:ap-southeast-2:047245030703:0zbgqekimd/test",
+            "id": "byh8xa",
+            "invoke_url": "https://0zbgqekimd.execute-api.ap-southeast-2.amazonaws.com/test",
+            "rest_api_id": "0zbgqekimd",
+            "stage_description": null,
+            "stage_name": "test",
+            "triggers": null,
+            "variables": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_integration.lambda",
+            "aws_api_gateway_integration.lambda_root",
+            "aws_api_gateway_method.proxy",
+            "aws_api_gateway_method.proxy_root",
+            "aws_api_gateway_resource.proxy",
+            "aws_api_gateway_rest_api.example",
+            "aws_iam_role.lambda_exec",
+            "aws_lambda_function.example"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_integration",
+      "name": "lambda",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cache_key_parameters": [],
+            "cache_namespace": "fm8rc7",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling": "",
+            "credentials": "",
+            "http_method": "ANY",
+            "id": "agi-0zbgqekimd-fm8rc7-ANY",
+            "integration_http_method": "POST",
+            "passthrough_behavior": "WHEN_NO_MATCH",
+            "request_parameters": {},
+            "request_templates": {},
+            "resource_id": "fm8rc7",
+            "rest_api_id": "0zbgqekimd",
+            "timeout_milliseconds": 29000,
+            "tls_config": [],
+            "type": "AWS_PROXY",
+            "uri": "arn:aws:apigateway:ap-southeast-2:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-southeast-2:047245030703:function:ServerlessExample/invocations"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.proxy",
+            "aws_api_gateway_resource.proxy",
+            "aws_api_gateway_rest_api.example",
+            "aws_iam_role.lambda_exec",
+            "aws_lambda_function.example"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_integration",
+      "name": "lambda_root",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cache_key_parameters": [],
+            "cache_namespace": "i6rd7da4ya",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling": "",
+            "credentials": "",
+            "http_method": "ANY",
+            "id": "agi-0zbgqekimd-i6rd7da4ya-ANY",
+            "integration_http_method": "POST",
+            "passthrough_behavior": "WHEN_NO_MATCH",
+            "request_parameters": {},
+            "request_templates": {},
+            "resource_id": "i6rd7da4ya",
+            "rest_api_id": "0zbgqekimd",
+            "timeout_milliseconds": 29000,
+            "tls_config": [],
+            "type": "AWS_PROXY",
+            "uri": "arn:aws:apigateway:ap-southeast-2:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-southeast-2:047245030703:function:ServerlessExample/invocations"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.proxy_root",
+            "aws_api_gateway_rest_api.example",
+            "aws_iam_role.lambda_exec",
+            "aws_lambda_function.example"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method",
+      "name": "proxy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_required": false,
+            "authorization": "NONE",
+            "authorization_scopes": [],
+            "authorizer_id": "",
+            "http_method": "ANY",
+            "id": "agm-0zbgqekimd-fm8rc7-ANY",
+            "operation_name": "",
+            "request_models": {},
+            "request_parameters": {},
+            "request_validator_id": "",
+            "resource_id": "fm8rc7",
+            "rest_api_id": "0zbgqekimd"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_resource.proxy",
+            "aws_api_gateway_rest_api.example"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method",
+      "name": "proxy_root",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_required": false,
+            "authorization": "NONE",
+            "authorization_scopes": [],
+            "authorizer_id": "",
+            "http_method": "ANY",
+            "id": "agm-0zbgqekimd-i6rd7da4ya-ANY",
+            "operation_name": "",
+            "request_models": {},
+            "request_parameters": {},
+            "request_validator_id": "",
+            "resource_id": "i6rd7da4ya",
+            "rest_api_id": "0zbgqekimd"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_rest_api.example"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_resource",
+      "name": "proxy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "fm8rc7",
+            "parent_id": "i6rd7da4ya",
+            "path": "/{proxy+}",
+            "path_part": "{proxy+}",
+            "rest_api_id": "0zbgqekimd"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_rest_api.example"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_rest_api",
+      "name": "example",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_source": "HEADER",
+            "arn": "arn:aws:apigateway:ap-southeast-2::/restapis/0zbgqekimd",
+            "binary_media_types": [],
+            "body": null,
+            "created_date": "2022-08-31T11:03:37Z",
+            "description": "Terraform Serverless Application Example",
+            "disable_execute_api_endpoint": false,
+            "endpoint_configuration": [
+              {
+                "types": [
+                  "EDGE"
+                ],
+                "vpc_endpoint_ids": []
+              }
+            ],
+            "execution_arn": "arn:aws:execute-api:ap-southeast-2:047245030703:0zbgqekimd",
+            "id": "0zbgqekimd",
+            "minimum_compression_size": -1,
+            "name": "ServerlessExample",
+            "parameters": null,
+            "policy": "",
+            "put_rest_api_mode": null,
+            "root_resource_id": "i6rd7da4ya",
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_dynamodb_table",
+      "name": "dynamodb-terraform-state-lock",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:dynamodb:ap-southeast-2:047245030703:table/terraform-state-lock-dynamodb",
+            "attribute": [
+              {
+                "name": "LockID",
+                "type": "S"
+              }
+            ],
+            "billing_mode": "PAY_PER_REQUEST",
+            "global_secondary_index": [],
+            "hash_key": "LockID",
+            "id": "terraform-state-lock-dynamodb",
+            "local_secondary_index": [],
+            "name": "terraform-state-lock-dynamodb",
+            "point_in_time_recovery": [
+              {
+                "enabled": false
+              }
+            ],
+            "range_key": null,
+            "read_capacity": 0,
+            "replica": [],
+            "restore_date_time": null,
+            "restore_source_name": null,
+            "restore_to_latest_time": null,
+            "server_side_encryption": [],
+            "stream_arn": "",
+            "stream_enabled": false,
+            "stream_label": "",
+            "stream_view_type": "",
+            "table_class": "",
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null,
+            "ttl": [
+              {
+                "attribute_name": "",
+                "enabled": false
+              }
+            ],
+            "write_capacity": 0
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "lambda_exec",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::047245030703:role/serverless_example_lambda",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2022-08-31T10:56:31Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "serverless_example_lambda",
+            "inline_policy": [],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "serverless_example_lambda",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": null,
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AROAQWAAF6UXW2CBMCGU4"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "example",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:ap-southeast-2:047245030703:function:ServerlessExample",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": null,
+            "function_name": "ServerlessExample",
+            "handler": "main.handler",
+            "id": "ServerlessExample",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:ap-southeast-2:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-southeast-2:047245030703:function:ServerlessExample/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2022-08-31T13:22:00.000+0000",
+            "layers": [],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:ap-southeast-2:047245030703:function:ServerlessExample:$LATEST",
+            "reserved_concurrent_executions": -1,
+            "role": "arn:aws:iam::047245030703:role/serverless_example_lambda",
+            "runtime": "nodejs14.x",
+            "s3_bucket": "terraform-serverless-jrdevops-arno",
+            "s3_key": "v1.0.0/example.zip",
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "source_code_hash": "a817QmQ63aqi5RNICgN2ioilE8VFnJTGfeit0rJKvcU=",
+            "source_code_size": 346,
+            "tags": {},
+            "tags_all": {},
+            "timeout": 3,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_permission",
+      "name": "apigw",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "ServerlessExample",
+            "function_url_auth_type": null,
+            "id": "AllowAPIGatewayInvoke",
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:ap-southeast-2:047245030703:0zbgqekimd/*/*",
+            "statement_id": "AllowAPIGatewayInvoke",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_rest_api.example",
+            "aws_iam_role.lambda_exec",
+            "aws_lambda_function.example"
+          ]
+        }
+      ]
+    }
+  ]
+}
