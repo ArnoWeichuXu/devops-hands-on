@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    tools {
+       terraform 'terraform'
+    }
+    environment {
+        WorkDir = "L12/services/backend_app"
+        VerTag = "${params.VerTag}"
+    }
+    
+    parameters {
+        string defaultValue: '1.0.0', description: 'Enter the version tag for this upload', name: 'VerTag', trim: true
+    }
+
+    stages {
+        stage('Git checkout') {
+           steps{
+                git branch: 'main', url: 'https://github.com/ArnoWeichuXu/DevOps8thHandson.git'
+            }
+        }
+        stage('terraform format check') {
+            dir(WorkDir) {
+                steps{
+                    sh 'terraform fmt'
+                }
+            }
+        }
+        stage('terraform Init') {
+            dir(WorkDir) {
+                steps{
+                    sh 'terraform init'
+                }
+            }
+        }
+        stage('terraform apply') {
+            dir(WorkDir) {
+                steps{
+                    sh 'terraform apply -var="app_version=$VerTag"--auto-approve'
+                }
+            }
+        }
+    }
+}
